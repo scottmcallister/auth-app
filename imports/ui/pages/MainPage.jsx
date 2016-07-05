@@ -7,15 +7,9 @@ export default class MainPage extends Component {
     this.state = {
       username: ''
     };
-    this.logout = this.logout.bind(this);
   }
   componentWillMount(){
     Meteor.user();
-  }
-  logout(e){
-    e.preventDefault();
-    Meteor.logout();
-    browserHistory.push('/login');
   }
 
   render(){
@@ -24,20 +18,6 @@ export default class MainPage extends Component {
     let loggedIn = (currentUser && userDataAvailable);
     return (
       <div>
-        <nav className="navbar navbar-default navbar-static-top">
-          <div className="container">
-            <div className="navbar-header">
-              <a className="navbar-brand" href="#">Auth App</a>
-            </div>
-            <div className="navbar-collapse">
-              <ul className="nav navbar-nav navbar-right">
-                <li>
-                  <a href="#" onClick={this.logout}>Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
         <div className="container">
           <h1 className="text-center">{ loggedIn ? 'Welcome '+currentUser.username : '' }</h1>
         </div>
