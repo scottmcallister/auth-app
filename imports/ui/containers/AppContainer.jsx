@@ -26,7 +26,13 @@ export default class AppContainer extends Component {
 
   logout(e){
     e.preventDefault();
-    Meteor.logout();
+    Meteor.logout( (err) => {
+        if (err) {
+            console.log( err.reason );
+        } else {
+            browserHistory.push('/login');
+        }
+    });
     browserHistory.push('/login');
   }
 
