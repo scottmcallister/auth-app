@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { withHistory } from 'react-router-dom'
+import { withHistory } from 'react-router-dom';
+
+import MainContainer from './MainContainer.jsx';
 
 export default class AppContainer extends Component {
   constructor(props){
@@ -53,7 +55,7 @@ export default class AppContainer extends Component {
             </div>
           </div>
         </nav>
-        {this.props.children}
+        <MainContainer />
       </div>
     );
   }
