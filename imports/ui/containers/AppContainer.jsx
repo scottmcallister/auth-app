@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { browserHistory } from 'react-router'
+import React, { Component } from 'react';
+import { withHistory } from 'react-router-dom'
 
 export default class AppContainer extends Component {
   constructor(props){
@@ -14,13 +14,13 @@ export default class AppContainer extends Component {
 
   componentWillMount(){
     if (!this.state.isAuthenticated) {
-      browserHistory.push('/login');
+      this.props.history.push('/login');
     }
   }
 
   componentDidUpdate(prevProps, prevState){
     if (!this.state.isAuthenticated) {
-      browserHistory.push('/login');
+      this.props.history.push('/login');
     }
   }
 
@@ -30,10 +30,10 @@ export default class AppContainer extends Component {
         if (err) {
             console.log( err.reason );
         } else {
-            browserHistory.push('/login');
+            this.props.history.push('/login');
         }
     });
-    browserHistory.push('/login');
+    this.props.history.push('/login');
   }
 
   render(){

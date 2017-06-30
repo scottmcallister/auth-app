@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import { browserHistory, Link } from 'react-router'
+import React, { Component } from 'react'
+import { withHistory, Link } from 'react-router-dom'
 import { createContainer } from 'meteor/react-meteor-data'
 
 export default class LoginPage extends Component {
@@ -21,7 +21,7 @@ export default class LoginPage extends Component {
           error: err.reason
         });
       } else {
-        browserHistory.push('/');
+        this.props.history.push('/');
       }
     });
   }

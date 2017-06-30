@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react'
-import { browserHistory, Link } from 'react-router'
+import React, { Component } from 'react';
+import { withHistory, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default class MainPage extends Component {
   constructor(props){
@@ -23,6 +24,6 @@ export default class MainPage extends Component {
   }
 }
 
-MainPage.PropTypes = {
-  username: React.PropTypes.string
+MainPage.propTypes = {
+  username: PropTypes.string
 }

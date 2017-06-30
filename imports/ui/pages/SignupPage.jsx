@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react'
-import { browserHistory, Link } from 'react-router'
-import { Accounts } from 'meteor/accounts-base'
+import React, { Component } from 'react';
+import { withHistory, Link } from 'react-router-dom';
+import { Accounts } from 'meteor/accounts-base';
 
 export default class SignupPage extends Component {
   constructor(props){
@@ -23,7 +23,7 @@ export default class SignupPage extends Component {
           error: err.reason
         });
       } else {
-        browserHistory.push('/login');
+        this.props.history.push('/login');
       }
     });
   }
