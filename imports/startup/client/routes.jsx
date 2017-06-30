@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // containers
 import AppContainer from '../../ui/containers/AppContainer.jsx'
@@ -10,11 +10,11 @@ import SignupPage from '../../ui/pages/SignupPage.jsx'
 import LoginPage from '../../ui/pages/LoginPage.jsx'
 
 export const renderRoutes = () => (
-  <Router history={browserHistory}>
-    <Route path="login" component={LoginPage}/>
-    <Route path="signup" component={SignupPage}/>
-    <Route path="/" component={AppContainer}>
-      <IndexRoute component={MainContainer}/>
-    </Route>
+  <Router>
+    <div>
+      <Route path="/login" component={LoginPage}/>
+      <Route path="/signup" component={SignupPage}/>
+      <Route exact={true} path="/" component={AppContainer} />
+    </div>
   </Router>
 );
